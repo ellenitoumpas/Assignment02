@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 abstract class Content {
 	
-	String id, name, reviews; // reviews done this way or another ??
-	int downloads, price;	
+	String id, name; // reviews done this way or another ??
+	int downloads, price;
+	ArrayList<Comment> reviews;
 		
 	public String getID(){
 		return id;
@@ -11,7 +14,6 @@ abstract class Content {
 		return name;
 	}
 	
-
 	// #### ACCESSORS #### //	
 	public int getPrice(){
 		return price;
@@ -20,8 +22,7 @@ abstract class Content {
 	public int getDownload(){
 		return downloads;
 	}
-	
-	
+		
 	// #### MUTATORS #### //	
 	public void addDownload(int a){
 		downloads += a;
@@ -29,6 +30,11 @@ abstract class Content {
 	public void addDownload() {
 		downloads ++;
 		}
-
+	public void addComment(Comment comment) {
+		reviews.add(comment);
+	}
+	public void getComment(int index) {
+		reviews.get(index);
+	}
 		
 }

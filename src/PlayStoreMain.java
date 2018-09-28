@@ -1,6 +1,8 @@
+import java.util.*;	
+
 public class PlayStoreMain {
         
-        public static void main(String[] args) {
+        public static void main(String[] args) throws AlreadyPremiumException, BalanceTooLowException {
 
         		PlayStore store = new PlayStore();
                 
@@ -94,8 +96,8 @@ public class PlayStoreMain {
                 User u4 = new User("u4", "Diane Roe", "0412003", 50, androidV3);
                 
                 u4.becomePremium(); // Added for testing only....delete when Premium function works properly
+                //u1.getBalance();
                 
-
                                 
                 // #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
                 // #### Testing the new games added ############//
