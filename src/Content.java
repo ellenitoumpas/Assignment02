@@ -14,7 +14,6 @@ abstract class Content {
 		return name;
 	}
 	
-
 	// #### ACCESSORS #### //	
 	public int getPrice(){
 		return price;
@@ -23,8 +22,7 @@ abstract class Content {
 	public int getDownload(){
 		return downloads;
 	}
-	
-	
+		
 	// #### MUTATORS #### //	
 	public void addDownload(int a){
 		downloads += a;
