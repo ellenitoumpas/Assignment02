@@ -6,7 +6,7 @@ public class User {
 	private String id, name, phone;
 	private int balance;
 	
-			
+	// adding a comment		
 	private boolean premiumUser = false;
 	private OS os;
 	private final int PREMIUMCOST = 100;
