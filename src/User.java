@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 import java.text.*;
-=======
 import java.util.ArrayList;
->>>>>>> cea7d48cfbd31d20dd97ce12de958c51d991efcc
+
 
 public class User {
 
@@ -12,14 +10,11 @@ public class User {
 	
 	// USER variables
 	private String id, name, phone;
-<<<<<<< HEAD
+
 	private int balance;		
-=======
-	private int balance;
-	private ArrayList<Comment> commentHistory = new ArrayList<Comment>();
+	//private ArrayList<Comment> commentHistory = new ArrayList<Comment>();
 	
 	// adding a comment		
->>>>>>> cea7d48cfbd31d20dd97ce12de958c51d991efcc
 	private boolean premiumUser = false;
 	private OS os;
 	private final double PREMIUMCOST = 100.00;
