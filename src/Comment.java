@@ -8,7 +8,7 @@ public class Comment {
  
 
  //Constructor
- public Comment(User userID, String contentID, String comment) {
+ public Comment(String userID, String contentID, String comment) {
 	 this.userID = userID;
 	 this.contentID = contentID;
 	 this.comment = comment;
