@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class User {
 
@@ -5,6 +6,7 @@ public class User {
 	// USER variables
 	private String id, name, phone;
 	private int balance;
+	private ArrayList<Comment> commentHistory = new ArrayList<Comment>();
 	
 	// adding a comment		
 	private boolean premiumUser = false;
