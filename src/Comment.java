@@ -14,6 +14,10 @@ public class Comment {
 	 this.comment = comment;
 	//TODO: method to add comment to User
 	 }
+ public Comment(String UserID, String comment) {
+	 this.userID = userID;
+	 this.comment = comment;
+ }
  
 //Methods
  public String getUser() {
