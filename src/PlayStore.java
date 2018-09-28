@@ -5,6 +5,7 @@ public class PlayStore {
 	
 	// whatever variables you need here.
 	// They must all be marked as private
+	//this is a new comment
 	
 	private String id;
 	private Content content;
