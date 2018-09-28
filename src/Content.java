@@ -26,7 +26,9 @@ abstract class Content {
 	public void addDownload(int a){
 		downloads += a;
 	}
-	
+	public void addDownload() {
+		downloads ++;
+		}
 
 		
 }
