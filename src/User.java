@@ -12,7 +12,7 @@ public class User {
 	private String id, name, phone;
 
 	private int balance;		
-	//private ArrayList<Comment> commentHistory = new ArrayList<Comment>();
+	private ArrayList<Comment> commentHistory = new ArrayList<Comment>();
 	
 	// adding a comment		
 	private boolean premiumUser = false;
