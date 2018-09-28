@@ -22,19 +22,25 @@ abstract class Content {
 	public int getDownload(){
 		return downloads;
 	}
-		
+	
+	public void getComment(int index) {
+		reviews.get(index);
+	}
+	
 	// #### MUTATORS #### //	
 	public void addDownload(int a){
 		downloads += a;
 	}
 	public void addDownload() {
 		downloads ++;
-		}
+	}
+	
+	//Comment handling
 	public void addComment(Comment comment) {
 		reviews.add(comment);
 	}
-	public void getComment(int index) {
-		reviews.get(index);
+	public void showcomment(int index) {
+		System.out.print(reviews.get(index));
 	}
 		
 }

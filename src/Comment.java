@@ -3,28 +3,32 @@ import java.util.ArrayList;
 public class Comment {
 	
 	//COMMENT variables
- String userID, contentID, comment;
+ Content content;
+ User user;
+ String copy;
  ArrayList<Reply> replyList;
  
 
  //Constructor
- public Comment(String userID, String contentID, String comment) {
-	 this.userID = userID;
-	 this.contentID = contentID;
-	 this.comment = comment;
+ public Comment(User user, Content content, String copy) {
+	 this.user = user;
+	 this.content = content;
+	 this.copy = copy;
 	//TODO: method to add comment to User
+	 content.addComment(this);
 	 }
- public Comment(String UserID, String comment) {
-	 this.userID = userID;
-	 this.comment = comment;
+ 
+ public Comment(User user, String copy) {
+	 this.user = user;
+	 this.copy = copy;
  }
  
 //Methods
- public String getUser() {
-	 return userID;
+ public User getUser() {
+	 return user;
  }
- public String getContent() {
-	 return contentID;
+ public Content getContent() {
+	 return content;
  }
 
 }

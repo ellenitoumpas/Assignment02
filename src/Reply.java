@@ -1,11 +1,11 @@
 
 public class Reply extends Comment {
 
-private String replyTo;
+private Comment replyTo;
 
-public Reply(String userID, String replyTo,String comment){
-	super(userID, comment);
-	this.userID = userID;
+public Reply(User user, Comment replyTo,String copy){
+	super(user, copy);
+	this.replyTo = replyTo;
 	
 	
 }
