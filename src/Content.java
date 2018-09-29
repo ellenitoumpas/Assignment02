@@ -27,6 +27,10 @@ abstract class Content {
 		reviews.get(index);
 	}
 	
+	public void showcomment(int index) {
+		System.out.print(reviews.get(index));
+	}
+	
 	// #### MUTATORS #### //	
 	public void addDownload(int a){
 		downloads += a;
@@ -35,12 +39,9 @@ abstract class Content {
 		downloads ++;
 	}
 	
-	//Comment handling
 	public void addComment(Comment comment) {
 		reviews.add(comment);
 	}
-	public void showcomment(int index) {
-		System.out.print(reviews.get(index));
-	}
+
 		
 }
