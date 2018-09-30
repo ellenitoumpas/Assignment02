@@ -1,7 +1,13 @@
 
 public class Magazine extends Reading{
 	
+	
+	// #### DECLARING VARIBALES #### //
+	
 	String mainFeature;
+	
+	
+	// #### THE CONSTRUCTOR #### //
 		
 	public Magazine(String a, String b, int c, String d, String e, int f, String g) {
 		id = a;
@@ -12,6 +18,15 @@ public class Magazine extends Reading{
 		pages = f;
 		mainFeature = g;				
 	}
+	
+	
+	// #### ACCESSORS #### //
+	
+	// #### MUTATORS #### //
+	
+	
+	
+	// #### TESTING ONLY #### //	
 			
 	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
     // #### Testing the new BOOK added ###############//

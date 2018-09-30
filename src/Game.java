@@ -1,9 +1,14 @@
 
-public class Game extends Content{
+public class Game extends Content{	
+	
+	// #### DECLARING VARIBALES #### //
 	
 	private boolean isMultiPlayer;
 	private OS os;
 		
+	
+	// #### THE CONSTRUCTOR #### //
+	
 	public Game (String a, String b, int c, boolean d, OS e) {		
 		id = a;
 		name = b;
@@ -11,7 +16,25 @@ public class Game extends Content{
 		isMultiPlayer = d;
 		os = e;				
 	}
-			
+	
+	
+	// #### ACCESSORS #### //
+	
+	public String getPlatform() {
+		return os.getPlatform();
+	}
+		
+	// So far a testing only method...double check later if I still need to keep it?
+	public int getVersion() {
+		return os.getVersion();
+	}
+	
+	
+	// #### MUTATORS #### //
+	
+	
+	// #### TESTING ONLY #### //
+		
 	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
     // #### Testing the new GAME added ###############//
 	public void testprint() {
@@ -27,5 +50,8 @@ public class Game extends Content{
 		System.out.println("");
 	}
 	 // #### END DELETE ###############//
+	
+	
+
 		
 }

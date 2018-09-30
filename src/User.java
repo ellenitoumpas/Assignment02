@@ -1,24 +1,24 @@
 import java.text.*;
 import java.util.ArrayList;
 
-
 public class User {
 
+	// #### DECLARING VARIBALES #### //
+	
 	// Formatter for creating currency decimal value 
-	// Not sure if this should be here
 	DecimalFormat df = new DecimalFormat("0.00");
+	
 	
 	// USER variables
 	private String id, name, phone;
-
 	private int balance;		
-	//private ArrayList<Comment> commentHistory = new ArrayList<Comment>();
-	
-	// adding a comment		
 	private boolean premiumUser = false;
 	private OS os;
 	private final double PREMIUMCOST = 100.00;
 	private double discount = 0.00;
+	private ArrayList<Content> contentBought= new ArrayList<Content>();  
+
+	// #### THE CONSTRUCTOR #### //
 
 		
 	// USER constructor 
@@ -31,95 +31,29 @@ public class User {
 	}
 	
 	
+	// #### ACCESSORS #### //
 	
-			
-	// METHOD for becoming a premium user 
-	public void becomePremium() throws AlreadyPremiumException, BalanceTooLowException{		
-					  		
-		try {
-			
-			// CHECK if the user is a premium member
-			if (getPremium() == true) {				
-				// Throw exception if user is already premium
-				throw new AlreadyPremiumException();
-			}
-			
-			
-			if (checkEnoughMoney(getBalance(), PREMIUMCOST)==false) {
-				throw new BalanceTooLowException();
-			}	
-			
-			
-
-			
-			
-			// TO DO ONCE TRY CATCHS WORK
-//			setPremium(true);	
-//			setDiscount(0.20);
-//			testingOutput(name + " your premium status is "+getPremium()+" and your discount is "+getDiscount());
-			
-		} 
-
-		catch (AlreadyPremiumException ex) {
-			testingOutput("You already have a membership.");
-		}
-		
-		catch (BalanceTooLowException ex) {
-			testingOutput("You do not have enough money to become a premium member.");
-		}
-		
-		
-		
-		
-
-		
-		
-		
-						
-//		if (checkEnoughMoney(getBalance(), PREMIUMCOST)==true) {		
-//											
-//			if (getPremium() == false) {
-//				setPremium(true);	
-//				setDiscount(0.20);
-//				//testingOutput("You have become a premium member!");
-//			} else {
-//				testingOutput("You are already a premium member.");	
-//			}			
-//		} else {
-//			System.out.println("You do not have enough money to upgrade to Premium.");
-//		}		
-	}
-	
-
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	// ######### ACCESSORS ########## //
-		
 	// Check if Premium
 	public boolean getPremium() {
 		return premiumUser;
-	}
+	}	
+	
 	
 	// Check Discount value
 		public double getDiscount() {
 			return discount;
 	}
+	
 		
 	// Check Balance		
-	public double getBalance() {		
-//		System.out.println("Balance as an integer $"+balance);
-//		System.out.println("Balance as an double $"+df.format((double)balance));		
+	public double getBalance() {				
 		return (double)balance;
+	}
+	
+	
+	// Get Balance as string with 2 decimal places		
+	public String getBalanceAsString() {				
+		return df.format((double)balance);
 	}
 	
 	
@@ -133,25 +67,129 @@ public class User {
 	}
 	
 	
+	// Adjust price of item if the user has Premium account
+	public double getDiscountedPrice(int a) {
+		if (getPremium() == true) {	
+			return ((double)a * (1 - discount)); 
+		} else {
+			return a;
+		}		
+	}
 	
 	
-	// ######### MUTATORS ########## //
+	// Show content bought for this user
+	public void showContentBought() {
+		System.out.println("The user "+name+" ("+id+") bought:");
+		// loop to print out all the items 
+		for (int i=0; i<contentBought.size(); i++) 
+            System.out.println(contentBought.get(i).getName());			
+	}
+
 		
+	public void addContentBought(Content a) {
+		contentBought.add(a);
+	}
+
+	// Become a premium user 
+	public void becomePremium(){							  		
+		try {			
+			// CHECK if the user is a premium member
+			if (getPremium() == true) {				
+				// Throw exception if user is already premium
+				throw new AlreadyPremiumException();
+			}						
+			// CHECK if the user has enough money to become a member
+			if (checkEnoughMoney(getBalance(), PREMIUMCOST)==false) {
+				throw new BalanceTooLowException();
+			}							
+			// ACTIONS if allowed
+			setPremium(true);	
+			setDiscount(0.20);
+			testingOutput(name + " your premium status is "+getPremium()+" and your discount is "+getDiscount());			
+		} 
+		// NOTES: Research better ways to format the exception 
+		catch (AlreadyPremiumException ex) {
+			testingOutput("Your membership can not be created as you are already a member.");
+		}		
+		catch (BalanceTooLowException ex) {
+			testingOutput("You do not have enough money to become a premium member.");
+		}	
+	}
+	
+		
+	// Buy an item
+	public void buyContent(Content c) {	
+						
+		// Set the item price (adjusted for discount if premium member)		
+		double itemprice = getDiscountedPrice(c.price);
+		 
+		try {												
+			
+			// Check if the user has enough money to buy the item
+			if (checkEnoughMoney(getBalance(), itemprice)==false) {
+				throw new BalanceTooLowException();
+			}	
+			
+			// Check if item is of type game
+			if (c instanceof Game) {
+				testingOutput("This is a game!");
+								
+				// Check if platform of user os is equal to Game 
+				if ((os.getPlatform()!=((Game) c).getPlatform())) 
+					throw new IncorrectPlatformException();
+				
+				// Check if version meets minimum specifications
+				if (os.getVersion() < ((Game) c).getVersion())
+					throw new VersionOutOfDateException();					
+				
+				// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
+			    // #### User and game platforms ################// 
+				testingOutput("The user is on platform "+os.getPlatform());
+				testingOutput("The game platform is "+((Game) c).getPlatform());
+				// #################### End ####################//
+				
+			}
+			
+			// If the user has enough money buy the item and then increment the download count						
+			deductBalance(itemprice);
+			c.addDownload();
+			addContentBought(c);
+			testingOutput(name+" has bought a "+c.name+" for the price of $"+df.format(itemprice)+".\nThis item has now been download "+c.downloads+" times.");			
+		} 
+
+		// NOTES: Research better ways to format the exception
+		
+		catch (BalanceTooLowException ex) {
+			testingOutput("You do not have enough money to buy this item.");
+		}	
+		
+		catch (IncorrectPlatformException ex) {
+			testingOutput("DOWNLOAD FAILED :: \nYour platform is incompatible with game.\nDOWNLOAD CANCELLED");
+		}
+		
+		catch (VersionOutOfDateException ex) {
+			testingOutput("DOWNLOAD FAILED :: \nYour computer specifications does not meet the minimum specifications for this game.\nDOWNLOAD CANCELLED");
+		}
+	}
+		
+	
 	// Set Premium
 	public void setPremium(boolean a) {
 		premiumUser = a;
 	}
+	
 	
 	// Set Discount
 	public void setDiscount(double a) {
 		discount = a;
 	}
 	
+	
 	// Add to Balance
 	public void addBalance(int a) {
 		balance += a;
 	}
-	
+		
 	
 	// Deduct from balance	
 	public void deductBalance(double a) {
@@ -162,82 +200,10 @@ public class User {
 	
 	
 	
-	
-	
-	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
-    // #### Testing the new USER added ###############//
-	public void testprint() {
-		System.out.println("");
-		System.out.println("USER CREATED");
-		System.out.println("###########");
-		System.out.println("ID: "+id);
-		System.out.println("NAME: "+name);
-		System.out.println("PHONE: "+phone);
-		System.out.println("BALANCE: "+balance);
-		System.out.println("OS? "+os.getPlatform()+" version "+os.getVersion());
-		System.out.println("###########");
-		System.out.println("");
-	}
-	
-	
+	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//	
 	public void testingOutput(String a){
 		System.out.println(a);
 	}
 	
-	 // #### END DELETE ###############//
-	
-	
 }
-
-
-
-
-//// METHOD for buying content	
-//public void buyContent(Content c) {
-//			
-//	
-//	// #### TESTING ####//
-//	System.out.println("\nUser "+name+" wants to buy a "+c.name +" which costs $"+c.price);
-//	// #### TESTING ####//
-//	
-//	
-//	// SET ITEM PRICE		
-//	double itemprice;		
-//	if (getPremium() == true) {			
-//		itemprice = (c.price * (1 - discount)); // Need to convert to double
-//		System.out.println("User "+name+" gets a discount for "+c.name +". The discount is for $"+(c.price - itemprice));
-//	} else {
-//		itemprice = c.price;
-//	}
-//	
-//		
-//	
-//	// CHECK IF ENOUGH MONEY TO BUY		
-//	// Turn this If Else statement into a Try and Catch	??
-//	// try {} catch(Exception e) {}
-//	
-//	if (getBalance() - itemprice >= 0) {			
-//		
-//		// #### TESTING ####//
-//		System.out.println("Before the transaction "+name+" had $"+balance);
-//		
-//		
-//		deductBalance(itemprice);
-//		
-//		
-//		// #### TESTING ####//
-//		System.out.println("After the transaction "+name+" had $"+balance);
-//		
-//		// ADD ITEM TO USER LIST ?? 
-//		// ADD +1 to NUMBER of DOWNLOADS for this items
-//		c.addDownload(1);
-//		System.out.println("The item "+c.name+" has been download "+c.downloads+" times.");
-//		
-//		// ADD A PRINT STATEMENT 
-//		
-//		// INCREASE NUM DOWNLOADED			
-//	} else {
-//		System.out.println("You do not have enough money to purchase this item.");
-//	}	
-//	
-//}
+	 // #### END DELETE ###############//

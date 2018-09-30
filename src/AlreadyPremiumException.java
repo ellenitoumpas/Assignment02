@@ -1,7 +1,7 @@
 
 public class AlreadyPremiumException extends Exception{
 
-	private String reason;
+	//private String reason;
 		
 	public AlreadyPremiumException() {
 	      		

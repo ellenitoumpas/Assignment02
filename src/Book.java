@@ -1,8 +1,13 @@
 
 public class Book extends Reading{
 	
+	
+	// #### DECLARING VARIBALES #### //
+	
 	String [] author; // incorrect....create an ArrayList // maybe arrayList must be off main ??
 	
+	
+	// #### THE CONSTRUCTOR #### //
 	
 	public Book(String a, String b, int c, String d, String e, int f, String [] g) {				
 		id = a;
@@ -14,7 +19,15 @@ public class Book extends Reading{
 		author = g;				
 	}
 	
-		
+	
+	// #### ACCESSORS #### //
+	
+	
+	// #### MUTATORS #### //
+	
+	
+	// #### TESTING ONLY #### //
+	
 	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
     // #### Testing the new BOOK added ###############//
 	public void testprint() {

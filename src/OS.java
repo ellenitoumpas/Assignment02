@@ -1,10 +1,14 @@
 
 public class OS {
 	
+	// #### DECLARING VARIBALES #### //
+	
 	// Private variables for the OS object
 	private String platform;
 	private int version;	
 	
+	
+	// #### THE CONSTRUCTOR #### //
 	
 	// Constructor for the OS object - inputs include a string for platform type and integer for version number
 	public OS (String a, int b){
@@ -12,6 +16,8 @@ public class OS {
 		version = b;
 	}
 	
+	
+	// #### ACCESSORS #### //
 	
 	// So far a testing only method...double check later if I still need to keep it?
 	public String getPlatform() {
@@ -23,7 +29,12 @@ public class OS {
 	public int getVersion() {
 		return version;
 	}
+		
 	
+	
+	// #### MUTATORS #### //
+	
+	// #### TESTING ONLY #### //
 	
 	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
     // #### Testing the new OS added ###############//	
