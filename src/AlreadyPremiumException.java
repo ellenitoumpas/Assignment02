@@ -3,7 +3,7 @@ public class AlreadyPremiumException extends Exception{
 	private String msg;
 	
 	public AlreadyPremiumException(String msg) {
-		msg = "Sorry you do not have enough money ";
+		msg = "You are already a Premium Member.";
 	}
 	
 }

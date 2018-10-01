@@ -118,7 +118,7 @@ public class User {
 
 		} catch (AlreadyPremiumException se) {
 			 errorMessage = se.getMessage();
-			 System.out.println("\n"+errorMessage);
+			 System.out.println(errorMessage);
 			
 		} catch (BalanceTooLowException se) {			
 			errorMessage = se.getMsg() + "to become a premium member. Premium costs $" + (int)se.getCost() +"." ;
