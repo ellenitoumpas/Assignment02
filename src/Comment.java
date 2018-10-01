@@ -1,26 +1,56 @@
 import java.util.ArrayList;
 
 public class Comment {
+
 	
-	//COMMENT variables
- String userID, contentID, comment;
- ArrayList<Reply> replyList;
- 
+	// #### DECLARING VARIBALES #### //
+	private String contentID, comment;
+	private User userID;
+	private ArrayList<Comment> replyList = new ArrayList<Comment>();		
+	
+	
+	// #### THE CONSTRUCTOR #### //
+	public Comment(User a, String b) {
+		userID = a;
+		comment = b;	
+	}
 
- //Constructor
- public Comment(User userID, String contentID, String comment) {
-//	 this.userID = userID;
-	 this.contentID = contentID;
-	 this.comment = comment;
-	//TODO: method to add comment to User
-	 }
+	
+	// #### ACCESSORS #### //
+	public String getUser() {
+		 return userID.getID();
+	}
+	 
+	public String getComment() {
+		 return comment;
+	}
+	
+	public int getNumReplies() {
+		 return replyList.size();
+	}
+		
+	public String getReplyComment(int i) {
+		 return replyList.get(i).comment;
+	}
+	
+	public String getReplyAuthor(int i) {
+		 return replyList.get(i).userID.getID();
+	}
+	 
+	 
+	// #### MUTATORS #### //
+	public void addReply(Comment reply) {
+		 replyList.add(reply);
+	}
+	
+	
+// DELETE BEFORE SUBMITTING	
+//	 public String getContent() {
+//	 return contentID;
+// }
+//	public String getCommentID() {
+//	 return getSimpleName();
+//} 
  
-//Methods
- public String getUser() {
-	 return userID;
- }
- public String getContent() {
-	 return contentID;
- }
-
 }
+

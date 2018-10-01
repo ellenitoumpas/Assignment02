@@ -1,5 +1,3 @@
-import java.util.*;	
-
 public class PlayStoreMain {
     
     public static void main(String[] args) throws AlreadyPremiumException, BalanceTooLowException, IncorrectPlatformException, VersionOutOfDateException {
@@ -17,12 +15,9 @@ public class PlayStoreMain {
     		Book b3 = new Book ("r3", "Introduction to algorithms", 100, "MIT Press", "Computer Science", 1312, authors3);                        		
     		
     		// FIXED ?? r3 -> r4
-            Magazine m1 = new Magazine("r4", "Forbes", 8, "Forbes Media", "Business", 50, "World's richest under 30");                
-            
+            Magazine m1 = new Magazine("r4", "Forbes", 8, "Forbes Media", "Business", 50, "World's richest under 30");                            
             // ORIGINAL Magazine m1 = new Magazine("r3", "Forbes", 8, "Forbes Media", "Business", 50, "World's richest under 30");
-             
-            
-            
+               
             store.add(b1.getID(),b1);        		
             store.add(b2.getID(),b2);
             store.add(m1.getID(),m1);
@@ -55,44 +50,49 @@ public class PlayStoreMain {
             store.add(u2);
             store.add(u3);
             store.add(u4);
-            
-                                                        
+                                                                    
             // Simulate transactions
-//            u1.buyContent(b1);
-//            u1.buyContent(b3);           
-//            u1.buyContent(m1);
+            u1.buyContent(b1);
+            u1.buyContent(b3);           
+            u1.buyContent(m1);                        
+            u4.buyContent(g1);   
             
-            
-//            u4.buyContent(g1);
+            // TO DO: Need to fix exception handling in becomePremium method
             u4.becomePremium();
-//            u4.buyContent(m1);
-//
-//            u2.becomePremium();
-//            u2.buyContent(g2);
-//            u2.buyContent(g1);
-
-
-//               store.showContent();
+            u4.buyContent(m1);
+            u2.becomePremium();
             
-            
-            // Student to do: call a method to show all games                
-//               store.showContent("games");
-            
-           //store.showReadingOfGenre("Novel");
-//           u2.showContentBought();
+            // TO DO: Need to fix exception handling in buyContent (for game) method
+            u2.buyContent(g2);
+            u2.buyContent(g1);
 
-//            Comment comment1 = new Comment(u1, "This is a fantastic game!");
-//            g1.addReview(comment1);
-//            
-//            Comment reply1 = new Comment(u2, "I never liked this game!");
-//            comment1.addReply(reply1);
-//            
-//            Comment reply2 = new Comment(u1, "Why not??");
-//            reply1.addReply(reply2);
-//            
-//            Comment comment2 = new Comment(u3, "The game crashes frequently");
-//            g1.addReview(comment1);
-//            
-//            g1.showReviews();
+            // TO DO: Change the Show Content method so it automatically outputs ALL attributes depending on which object it is
+            store.showContent();
+                        
+            // TO DO: Improve showContent Method
+            // Call a method to show all games                
+            store.showContent("game");
+            
+            store.showReadingOfGenre("Novel");
+           
+            // TO DO: Improve formating for this following method + add code to write "User hasn't bought any items"
+            u2.showContentBought();
+
+            Comment comment1 = new Comment(u1, "This is a fantastic game!");
+            g1.addReview(comment1);
+
+            Comment reply1 = new Comment(u2, "I never liked this game!");
+            comment1.addReply(reply1);
+            
+            // TO DO: Need to extend the print Review and replies method as this line isn't appearing 
+            Comment reply2 = new Comment(u1, "Why not??");
+            reply1.addReply(reply2);
+            
+            Comment comment2 = new Comment(u3, "The game crashes frequently");
+
+            // g1.addReview(comment1); // IS THIS A MISTAKE ADDING comment1 more than once?
+            g1.addReview(comment2);
+            
+            g1.showReviews();
     }
 }

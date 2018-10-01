@@ -10,19 +10,14 @@ public class PlayStore {
 	
 	private String id;
 	private Content content;		
-	Hashtable<String, Content> contentlist = new Hashtable<String, Content>(); 
+	private Hashtable<String, Content> contentlist = new Hashtable<String, Content>(); 
 	private ArrayList<User> userlist= new ArrayList<User>();
-	
-	
 	
 	
 	
 	// #### THE CONSTRUCTOR #### //
 	
 	public PlayStore() {}
-	
-	
-	
 	
 	
 	// #### ACCESSORS #### //
@@ -40,8 +35,10 @@ public class PlayStore {
 		// Is there an issue with hard coding "class Book/ Magazine" in if then statement ??
 		// Ideally I want to get super.classname but this causes issues (returns java.object)
 		String cgenre = genre;		
-		System.out.println("ALL BOOKS IN GENRE "+cgenre.toUpperCase());
-		System.out.println("#######################");
+		System.out.println(""); 
+		System.out.println("########################");
+		System.out.println("ALL BOOKS IN GENRE: "+cgenre.toUpperCase());
+		System.out.println("########################");
 		System.out.println(""); 
         Enumeration<String> keys = contentlist.keys();        
 
@@ -87,12 +84,15 @@ public class PlayStore {
 //	 Show all content available in the store
 	
 	public void showContent() {		
+		System.out.println("");
+		System.out.println("###################");
 		System.out.println("ALL AVAILABLE ITEMS");
 		System.out.println("###################");
 		System.out.println("");  
+		
         Enumeration<String> keys = contentlist.keys();
         while(keys.hasMoreElements()){
-            String key = keys.nextElement();                 
+            String key = keys.nextElement();               
             System.out.println("ID: "+contentlist.get(key).getID()); 
             System.out.println("TYPE: "+contentlist.get(key).getClass()); 
             System.out.println("NAME: "+contentlist.get(key).getName()); 
@@ -110,9 +110,10 @@ public class PlayStore {
 		
 		String objectName = s.toLowerCase();
 		char chosenchar = objectName.charAt(0);
-		
-		System.out.println("ALL ITEM OF TYPE "+s.toUpperCase());
-		System.out.println("###################");
+		System.out.println("");
+		System.out.println("#########################");
+		System.out.println("ALL ITEMS OF TYPE: "+s.toUpperCase());
+		System.out.println("#########################");
 		System.out.println("");
 		
 		Enumeration<String> keys = contentlist.keys();		
@@ -157,7 +158,7 @@ public class PlayStore {
 	
 	// #### MUTATORS #### //
 	
-	
+	// Add content to the contentlist hashtable
 	public void add(String id, Content content) {
 		this.id = id;
 		this.content = content;

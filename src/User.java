@@ -19,6 +19,7 @@ public class User {
 	private ArrayList<Content> contentBought= new ArrayList<Content>();  
 
 	
+	
 	// #### THE CONSTRUCTOR #### //
 		
 	// USER constructor 
@@ -52,6 +53,10 @@ public class User {
 	public String getBalanceAsString() {				
 		return df.format((double)balance);
 	}
+	
+	public String getID() {
+		return id;
+	}
 		
 	// Check Balance		
 	public boolean checkEnoughMoney(double a, double b) {
@@ -72,9 +77,11 @@ public class User {
 	}
 		
 	// Show content bought for this user
-	public void showContentBought() {
-		System.out.println("The user "+name+" ("+id+") bought:");
-		// loop to print out all the items 
+	public void showContentBought() {		
+		System.out.println("");
+		System.out.println("###################################");
+		System.out.println("PURCHASE HISTORY FOR "+name+" ("+id+")");
+		System.out.println("###################################");
 		for (int i=0; i<contentBought.size(); i++) 
             System.out.println(contentBought.get(i).getName());			
 	}
@@ -87,8 +94,6 @@ public class User {
 	// Become a premium user 
 	public void becomePremium(){							  		
 		// CHECK if the user is a premium member
-	
-		
 		try {
 			if (getPremium() == true) {				
 				// Throw exception if user is already premium
@@ -103,16 +108,15 @@ public class User {
 			// ACTIONS if allowed
 			setPremium(true);	
 			setDiscount(0.20);
-			testingOutput(name + " your premium status is "+getPremium()+" and your discount is "+getDiscount());
-		
+			System.out.println("\n"+name + " your premium status has now been upgrade! Your discount level is now "+(int)(getDiscount()*100)+"%.");		
 		}
 			
 		catch (AlreadyPremiumException e) {
-			System.out.println("Your membership can not be created as you are already a member.");	
+			System.out.println("\nERROR! Your membership can not be created as you are already a member.");	
 		}
 		
 		catch (BalanceTooLowException e) {
-			System.out.println("You do not have enough money to become a premium member.");
+			System.out.println("\nMEMBERSHIP UPGRADE FAILED! You do not have enough money to become a premium member.");
 		}
 		
 		
@@ -163,7 +167,7 @@ public class User {
 //		
 //	}
 	
-	 Buy an item - VERSION 01
+	// Buy an item - VERSION 01
 	public void buyContent(Content c) {	
 						
 		// Set the item price (adjusted for discount if premium member)		
@@ -178,11 +182,11 @@ public class User {
 			
 			// Check if item is of type game
 			if (c instanceof Game) {
-				testingOutput("This is a game!");
+				// testingOutput("This is a game!");
 								
 				// Check if platform of user os is equal to Game 
 				if ((os.getPlatform()!=((Game) c).getPlatform())) 
-					throw new IncorrectPlatformException("DOWNLOAD FAILED :: \nYour platform is incompatible with game.\nDOWNLOAD CANCELLED");
+					throw new IncorrectPlatformException("\nDOWNLOAD FAILED :: \nYour platform is incompatible with game.\nDOWNLOAD CANCELLED");
 				
 				// Check if version meets minimum specifications
 				if (os.getVersion() < ((Game) c).getVersion())
@@ -190,8 +194,8 @@ public class User {
 				
 				// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
 			    // #### User and game platforms ################// 
-				testingOutput("The user is on platform "+os.getPlatform());
-				testingOutput("The game platform is "+((Game) c).getPlatform());
+				//testingOutput("The user is on platform "+os.getPlatform());
+				//testingOutput("The game platform is "+((Game) c).getPlatform());
 				// #################### End ####################//
 				
 			}
@@ -200,21 +204,21 @@ public class User {
 			deductBalance(itemprice);
 			c.addDownload();
 			addContentBought(c);
-			testingOutput(name+" has bought a "+c.name+" for the price of $"+df.format(itemprice)+".\nThis item has now been download "+c.downloads+" times.");			
+			System.out.println(" ");
+			System.out.println(name+" has bought a "+c.name+" for the price of $"+df.format(itemprice)+".\nThis item has now been download "+c.downloads+" times.");						
 		} 
 
-		// NOTES: Research better ways to format the exception
-		
+		// NOTES: Research better ways to format the exception		
 		catch (BalanceTooLowException ex) {
-			testingOutput("You do not have enough money to buy this item.");
+			System.out.println("You do not have enough money to buy this item.");
 		}	
 		
 		catch (IncorrectPlatformException ex) {
-			testingOutput("DOWNLOAD FAILED :: \nYour platform is incompatible with game.\nDOWNLOAD CANCELLED");
+			System.out.println("\nDOWNLOAD FAILED! Your platform is not compatible with game. You haven't purchased the item "+c.getName());
 		}
 		
 		catch (VersionOutOfDateException ex) {
-			testingOutput("DOWNLOAD FAILED :: \nYour computer specifications does not meet the minimum specifications for this game.\nDOWNLOAD CANCELLED");
+			System.out.println("\nDOWNLOAD FAILED! Your computer specifications does not meet the minimum specifications for this game. You haven't purchased the item "+c.getName());
 		}
 	}
 		
@@ -244,12 +248,4 @@ public class User {
 	}
 		
 	
-	
-	
-	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//	
-	public void testingOutput(String a){
-		System.out.println(a);
-	}
-	
 }
-	 // #### END DELETE ###############//

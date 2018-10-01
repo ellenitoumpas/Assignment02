@@ -4,7 +4,7 @@ public class Magazine extends Reading{
 	
 	// #### DECLARING VARIBALES #### //
 	
-	String mainFeature;
+	private String mainFeature;
 	
 	
 	// #### THE CONSTRUCTOR #### //

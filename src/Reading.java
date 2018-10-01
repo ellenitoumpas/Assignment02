@@ -2,9 +2,9 @@
 abstract class Reading extends Content{
 	
 	// #### DECLARING VARIBALES #### //
-	
-	String publisher, genre;
-	int pages;
+	// Notes to fix: I think these need to be private ??
+	protected String publisher, genre;
+	protected int pages;
 	
 	// #### ACCESSORS #### //
 	
