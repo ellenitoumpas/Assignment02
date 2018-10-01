@@ -1,6 +1,6 @@
-public class VersionOutOfDateException  extends Exception {
+public class VersionOutOfDateException  extends Exception{
+
 	public VersionOutOfDateException(String msg) {
 		super(msg);
 	}
-
 }

@@ -1,6 +1,6 @@
 public class PlayStoreMain {
     
-    public static void main(String[] args) throws AlreadyPremiumException, BalanceTooLowException, IncorrectPlatformException, VersionOutOfDateException {
+    public static void main(String[] args) {
 
     		PlayStore store = new PlayStore();
             
@@ -59,40 +59,40 @@ public class PlayStoreMain {
             
             // TO DO: Need to fix exception handling in becomePremium method
             u4.becomePremium();
-            u4.buyContent(m1);
-            u2.becomePremium();
+//            u4.buyContent(m1);
+//           u2.becomePremium();
             
-            // TO DO: Need to fix exception handling in buyContent (for game) method
-            u2.buyContent(g2);
-            u2.buyContent(g1);
-
-            // TO DO: Change the Show Content method so it automatically outputs ALL attributes depending on which object it is
-            store.showContent();
-                        
-            // TO DO: Improve showContent Method
-            // Call a method to show all games                
-            store.showContent("game");
-            
-            store.showReadingOfGenre("Novel");
-           
-            // TO DO: Improve formating for this following method + add code to write "User hasn't bought any items"
-            u2.showContentBought();
-
-            Comment comment1 = new Comment(u1, "This is a fantastic game!");
-            g1.addReview(comment1);
-
-            Comment reply1 = new Comment(u2, "I never liked this game!");
-            comment1.addReply(reply1);
-            
-            // TO DO: Need to extend the print Review and replies method as this line isn't appearing 
-            Comment reply2 = new Comment(u1, "Why not??");
-            reply1.addReply(reply2);
-            
-            Comment comment2 = new Comment(u3, "The game crashes frequently");
-
-            // g1.addReview(comment1); // IS THIS A MISTAKE ADDING comment1 more than once?
-            g1.addReview(comment2);
-            
-            g1.showReviews();
+//            // TO DO: Need to fix exception handling in buyContent (for game) method
+//            u2.buyContent(g2);
+//            u2.buyContent(g1);
+//
+//            // TO DO: Change the Show Content method so it automatically outputs ALL attributes depending on which object it is
+//            store.showContent();
+//                        
+//            // TO DO: Improve showContent Method
+//            // Call a method to show all games                
+//            store.showContent("game");
+//            
+//            store.showReadingOfGenre("Novel");
+//           
+//            // TO DO: Improve formating for this following method + add code to write "User hasn't bought any items"
+//            u2.showContentBought();
+//
+//            Comment comment1 = new Comment(u1, "This is a fantastic game!");
+//            g1.addReview(comment1);
+//
+//            Comment reply1 = new Comment(u2, "I never liked this game!");
+//            comment1.addReply(reply1);
+//            
+//            // TO DO: Need to extend the print Review and replies method as this line isn't appearing 
+//            Comment reply2 = new Comment(u1, "Why not??");
+//            reply1.addReply(reply2);
+//            
+//            Comment comment2 = new Comment(u3, "The game crashes frequently");
+//
+//            // g1.addReview(comment1); // IS THIS A MISTAKE ADDING comment1 more than once?
+//            g1.addReview(comment2);
+//            
+//            g1.showReviews();
     }
 }

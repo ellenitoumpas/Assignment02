@@ -1,6 +1,9 @@
 public class AlreadyPremiumException extends Exception{		
+	
+	private String msg;
+	
 	public AlreadyPremiumException(String msg) {
-		super(msg);
+		msg = "Sorry you do not have enough money ";
 	}
 	
 }

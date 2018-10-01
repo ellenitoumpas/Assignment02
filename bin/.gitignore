@@ -1,16 +1,2 @@
-/.DS_Store
-/AlreadyPremiumException.class
-/BalanceTooLowException.class
-/Book.class
-/Comment.class
-/Content.class
-/Game.class
-/Magazine.class
-/OS.class
-/PlayStore.class
-/PlayStoreMain.class
-/Reading.class
-/Reply.class
-/User.class
 /IncorrectPlatformException.class
 /VersionOutOfDateException.class
