@@ -9,7 +9,7 @@ public class Game extends Content{
 		name = b;
 		price = c;		
 		isMultiPlayer = d;
-		os = e;				
+		os = e;	
 	}
 			
 	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//

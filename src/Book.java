@@ -1,17 +1,20 @@
+import java.util.ArrayList;
 
 public class Book extends Reading{
 	
-	String [] author; // incorrect....create an ArrayList // maybe arrayList must be off main ??
+	private ArrayList<String> Authors;
 	
 	
-	public Book(String a, String b, int c, String d, String e, int f, String [] g) {				
+	public Book(String a, String b, int c, String d, String e, int f, String[] g) {				
 		id = a;
 		name = b;
 		price = c;
 		publisher = d;
 		genre = e;
 		pages = f;
-		author = g;				
+		for (int i=0; i < g.length; i++) {
+			Authors.add(g[i]);
+		}
 	}
 	
 		

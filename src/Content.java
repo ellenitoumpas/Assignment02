@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 abstract class Content {
 	
-	String id, name; // reviews done this way or another ??
+	String id, name;
 	int downloads, price;
 	ArrayList<Comment> reviews;
 		

@@ -11,7 +11,8 @@ public class User {
 	// USER variables
 	private String id, name, phone;
 
-	private int balance;		
+	private int balance;
+	private ArrayList<Comment> chatHistory;
 	//private ArrayList<Comment> commentHistory = new ArrayList<Comment>();
 	
 	// adding a comment		
@@ -159,7 +160,9 @@ public class User {
 		balance -= a;				
 	}
 		
-	
+	public void addComment(Comment c) {
+		chatHistory.add(c);
+	}
 	
 	
 	

@@ -6,7 +6,7 @@ public class Comment {
  Content content;
  User user;
  String copy;
- ArrayList<Reply> replyList;
+ ArrayList<Comment> replyList;
  
 
  //Constructor
@@ -14,8 +14,8 @@ public class Comment {
 	 this.user = user;
 	 this.content = content;
 	 this.copy = copy;
-	//TODO: method to add comment to User
 	 content.addComment(this);
+	 user.addComment(this);
 	 }
  
  public Comment(User user, String copy) {
@@ -30,5 +30,8 @@ public class Comment {
  public Content getContent() {
 	 return content;
  }
-
+ 
+ public void addReply(Comment reply) {
+		this.replyList.add(reply);
+	}
 }
