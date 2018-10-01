@@ -102,7 +102,7 @@ public class User {
 			
 			if (getPremium() == true) {				
 				// Throw exception if user is already premium
-				throw new AlreadyPremiumException("your membership can not be created as you are already a member.");
+				throw new AlreadyPremiumException();
 			}						
 			
 			// CHECK if the user has enough money to become a member
@@ -117,7 +117,7 @@ public class User {
 			System.out.println("\n"+name + " your premium status has now been upgrade! Your discount level is now "+(int)(getDiscount()*100)+"%.");		
 
 		} catch (AlreadyPremiumException se) {
-			 errorMessage = se.getMessage();
+			 errorMessage = se.getMsg();
 			 System.out.println(errorMessage);
 			
 		} catch (BalanceTooLowException se) {			
