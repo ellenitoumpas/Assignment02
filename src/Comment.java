@@ -4,7 +4,7 @@ public class Comment {
 	
 	//COMMENT variables
  String userID, contentID, comment;
- ArrayList<Reply> replyList;
+ ArrayList<Comment> replyList;
  
 
  //Constructor

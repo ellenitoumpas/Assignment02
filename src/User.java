@@ -163,7 +163,7 @@ public class User {
 //		
 //	}
 	
-	 Buy an item - VERSION 01
+	// Buy an item - VERSION 01
 	public void buyContent(Content c) {	
 						
 		// Set the item price (adjusted for discount if premium member)		

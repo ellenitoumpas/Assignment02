@@ -29,7 +29,13 @@ abstract class Content {
 	public int getDownload(){
 		return downloads;
 	}
-	
+	public void printAttributes() {
+		System.out.println("ID: "+ id);
+		System.out.println("NAME: "+ name);
+		System.out.println("PRICE: $" + price);
+		System.out.println("DOWNLOADS: " + downloads);
+		System.out.println();
+	}
 	
 	// #### MUTATORS #### //
 	

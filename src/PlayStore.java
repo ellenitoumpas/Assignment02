@@ -106,32 +106,32 @@ public class PlayStore {
 	// 2. Convert to lowercase
 	// 3. Grab the first character of the Show content of type using first char of ID name
 	// book -> b, magazine -> m, game -> g
-	public void showContent(String s) {		
-		
-		String objectName = s.toLowerCase();
-		char chosenchar = objectName.charAt(0);
-		
-		System.out.println("ALL ITEM OF TYPE "+s.toUpperCase());
-		System.out.println("###################");
-		System.out.println("");
-		
-		Enumeration<String> keys = contentlist.keys();		
-		
-		while(keys.hasMoreElements()){
-			
-			String key = keys.nextElement();
-			Class elementid = contentlist.get(key).getClass();
-			String classname = String.valueOf(elementid).toLowerCase();			
-			char classfirstchar = classname.charAt(6);				
-					
-			if (classfirstchar == chosenchar){
-				System.out.println("ID: "+contentlist.get(key).getID());
-			}
-			
-			// ADD exception :: if no items matching type 			  	
-		}		
-	}
-	
+//	public void showContent(String s) {		
+//
+//		String objectName = s.toLowerCase();
+//		char chosenchar = objectName.charAt(0);
+//		
+//		System.out.println("ALL ITEM OF TYPE "+s.toUpperCase());
+//		System.out.println("###################");
+//		System.out.println("");
+//		
+//		Enumeration<String> keys = contentlist.keys();		
+//		
+//		while(keys.hasMoreElements()){
+//			
+//			String key = keys.nextElement();
+//			Class elementid = contentlist.get(key).getClass();
+//			String classname = String.valueOf(elementid).toLowerCase();			
+//			char classfirstchar = classname.charAt(6);				
+//					
+//			if (classfirstchar == chosenchar){
+//				System.out.println("ID: "+contentlist.get(key).getID());
+//			}
+//			
+//			// ADD exception :: if no items matching type 			  	
+//		}		
+//	}
+//	
 	
 	
 	// SOLUTION 2 :: ANOTHER VERSION ??
@@ -153,6 +153,48 @@ public class PlayStore {
 	
 	
 	
+	//Solution 3:: USING SWITCH AND isinstanceof()
+	
+	
+	public void showContent(String s) {		
+		char chosenchar = s.toLowerCase().charAt(0);
+//		System.out.println(contentlist.get(chosenchar +"1"));
+//		System.out.print(contentlist.get(chosenchar +"1").getName());
+		System.out.println("ALL ITEM OF TYPE "+s.toUpperCase());
+		System.out.println("###################");
+		System.out.println("");
+		
+		Enumeration<String> keys = contentlist.keys();		
+		
+		while(keys.hasMoreElements()){
+			
+			String key = keys.nextElement();
+			switch (chosenchar) {
+			case 'g': 
+				if (contentlist.get(key) instanceof Game)
+			{
+					contentlist.get(key).printAttributes();
+			}
+				break;
+			case 'b': 
+				if (contentlist.get(key) instanceof Book)
+			{
+					contentlist.get(key).printAttributes();
+			}
+				break;
+			case 'm': if (contentlist.get(key) instanceof Magazine)
+			{
+				contentlist.get(key).printAttributes();
+			}
+			break;
+			default: System.out.println("No such class.");
+			}
+			
+			
+			
+			// ADD exception :: if no items matching type 			  	
+		}		
+	}
 	
 	
 	// #### MUTATORS #### //

@@ -58,25 +58,25 @@ public class PlayStoreMain {
             
                                                         
             // Simulate transactions
-//            u1.buyContent(b1);
-//            u1.buyContent(b3);           
-//            u1.buyContent(m1);
+            u1.buyContent(b1);
+            u1.buyContent(b3);           
+            u1.buyContent(m1);
             
             
-//            u4.buyContent(g1);
+            u4.buyContent(g1);
             u4.becomePremium();
-//            u4.buyContent(m1);
-//
-//            u2.becomePremium();
-//            u2.buyContent(g2);
-//            u2.buyContent(g1);
+            u4.buyContent(m1);
+
+            u2.becomePremium();
+            u2.buyContent(g2);
+            u2.buyContent(g1);
 
 
 //               store.showContent();
             
             
             // Student to do: call a method to show all games                
-//               store.showContent("games");
+               store.showContent("g");
             
            //store.showReadingOfGenre("Novel");
 //           u2.showContentBought();
