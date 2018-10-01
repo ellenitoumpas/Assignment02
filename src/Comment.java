@@ -4,12 +4,12 @@ public class Comment {
 	
 	//COMMENT variables
  String userID, contentID, comment;
- ArrayList<Reply> replyList;
+ ArrayList<Comment> replyList;
  
 
  //Constructor
- public Comment(String userID, String contentID, String comment) {
-	 this.userID = userID;
+ public Comment(User userID, String contentID, String comment) {
+//	 this.userID = userID;
 	 this.contentID = contentID;
 	 this.comment = comment;
 	//TODO: method to add comment to User
@@ -24,3 +24,4 @@ public class Comment {
  }
 
 }
+
