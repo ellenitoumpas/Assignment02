@@ -27,6 +27,14 @@ abstract class Content {
 		return downloads;
 	}
 	
+	public void printAttributes() {
+		System.out.println("ID: "+ id);
+		System.out.println("NAME: "+ name);
+		System.out.println("PRICE: $" + price);
+		System.out.println("DOWNLOADS: " + downloads);
+		System.out.println();
+	}
+	
 	public void showReviews() {
 		// Title for the Show Reviews section
 		System.out.println("");
