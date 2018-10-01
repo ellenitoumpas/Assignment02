@@ -1,7 +1,6 @@
-
 public class IncorrectPlatformException extends Exception{
-	public IncorrectPlatformException() {
-		
-	}
 
+	public IncorrectPlatformException(String msg) {
+		super(msg);
+	}
 }

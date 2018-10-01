@@ -1,10 +1,6 @@
-
-public class AlreadyPremiumException extends Exception{
-
-	//private String reason;
-		
-	public AlreadyPremiumException() {
-	      		
+public class AlreadyPremiumException extends Exception{		
+	public AlreadyPremiumException(String msg) {
+		super(msg);
 	}
 	
 }

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class PlayStoreMain {
     
-    public static void main(String[] args) throws AlreadyPremiumException, BalanceTooLowException {
+    public static void main(String[] args) throws AlreadyPremiumException, BalanceTooLowException, IncorrectPlatformException, VersionOutOfDateException {
 
     		PlayStore store = new PlayStore();
             
@@ -28,40 +28,43 @@ public class PlayStoreMain {
             store.add(m1.getID(),m1);
             store.add(b3.getID(),b3);
             
-            store.showContent();
-//
-//            // Adding new games
-//            OS androidV4 = new OS("Android", 4);                
-//            OS iOSV10    = new OS("iOS", 10);
-//            OS androidV3 = new OS("Android", 3);                
-//                                            
-//            Game g1 = new Game("g1", "Pokemon", 5, false, androidV4);
-//            Game g2 = new Game("g2", "Pokemon", 5, false, iOSV10);
-//            Game g3 = new Game("g3", "MineCraft", 2, true, androidV3);
-//                                                                            
-//            store.add(g1.getID(), g1);
-//            store.add(g2.getID(), g2);
-//            store.add(g3.getID(), g3);
-//                                                                          
-//            // Adding new users
-//            User u1 = new User("u1", "John Doe", "0412000", 2000, androidV4);
-//            User u2 = new User("u2", "Jane Doe", "0412001", 120, androidV4);
-//            User u3 = new User("u3", "Dave Roe", "0412002", 100, iOSV10);
-//            User u4 = new User("u4", "Diane Roe", "0412003", 50, androidV3);                             
-//                       
-//            // Add users to ArrayList userlist 
-//            store.add(u1);
-//            store.add(u2);
-//            store.add(u3);
-//            store.add(u4);
-//                                                            
-//            // Simulate transactions
+
+            // Adding new games
+            OS androidV4 = new OS("Android", 4);                
+            OS iOSV10    = new OS("iOS", 10);
+            OS androidV3 = new OS("Android", 3);                
+                                            
+            Game g1 = new Game("g1", "Pokemon", 5, false, androidV4);
+            Game g2 = new Game("g2", "Pokemon", 5, false, iOSV10);
+            Game g3 = new Game("g3", "MineCraft", 2, true, androidV3);
+                                                                            
+            store.add(g1.getID(), g1);
+            store.add(g2.getID(), g2);
+            store.add(g3.getID(), g3);
+                       
+                                                                          
+            // Adding new users
+            User u1 = new User("u1", "John Doe", "0412000", 2000, androidV4);
+            User u2 = new User("u2", "Jane Doe", "0412001", 120, androidV4);
+            User u3 = new User("u3", "Dave Roe", "0412002", 100, iOSV10);
+            User u4 = new User("u4", "Diane Roe", "0412003", 50, androidV3);    
+            
+                       
+            // Add users to ArrayList userlist 
+            store.add(u1);
+            store.add(u2);
+            store.add(u3);
+            store.add(u4);
+            
+                                                        
+            // Simulate transactions
 //            u1.buyContent(b1);
 //            u1.buyContent(b3);           
 //            u1.buyContent(m1);
-//
+            
+            
 //            u4.buyContent(g1);
-//            u4.becomePremium();
+            u4.becomePremium();
 //            u4.buyContent(m1);
 //
 //            u2.becomePremium();

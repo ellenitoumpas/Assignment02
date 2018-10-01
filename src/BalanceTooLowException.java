@@ -1,7 +1,6 @@
-
 public class BalanceTooLowException extends Exception{
-
-	public BalanceTooLowException() {
+	public BalanceTooLowException(String msg) {
+		super(msg);
         
     }
 }
