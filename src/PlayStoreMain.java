@@ -80,22 +80,23 @@ public class PlayStoreMain {
              u2.showContentBought();
               u3.showContentBought(); // ADDED FOR TESTING ONLY
               u4.showContentBought(); // ADDED FOR TESTING ONLY
-//
-//            Comment comment1 = new Comment(u1, "This is a fantastic game!");
-//            g1.addReview(comment1);
-//
-//            Comment reply1 = new Comment(u2, "I never liked this game!");
-//            comment1.addReply(reply1);
-//            
-//            // TO DO: Need to extend the print Review and replies method as this line isn't appearing 
-//            Comment reply2 = new Comment(u1, "Why not??");
-//            reply1.addReply(reply2);
-//            
-//            Comment comment2 = new Comment(u3, "The game crashes frequently");
-//
-//            // g1.addReview(comment1); // IS THIS A MISTAKE ADDING comment1 more than once?
-//            g1.addReview(comment2);
+
+            Comment comment1 = new Comment(u1, "This is a fantastic game!");
+            g1.addReview(comment1);
+
+            Comment reply1 = new Comment(u2, "I never liked this game!");
+            comment1.addReply(reply1);
             
+            // TO DO: Need to extend the print Review and replies method as this line isn't appearing 
+            Comment reply2 = new Comment(u1, "Why not??");
+            reply1.addReply(reply2);
+            
+            Comment comment2 = new Comment(u3, "The game crashes frequently");
+
+//             g1.addReview(comment1); // IS THIS A MISTAKE ADDING comment1 more than once?
+            g1.addReview(comment2);
+            
+            g1.showReviews(9);
             
 //            
 //            g1.showReviews();

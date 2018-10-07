@@ -35,24 +35,28 @@ abstract class Content {
 		System.out.println();
 	}
 	
-	public void showReviews() {
+	public void showReviews(int depth) {
 		// Title for the Show Reviews section
 		System.out.println("");
 		System.out.println("The reviews for "+name+" ("+id+"):");
 		
 		for (int i=0; i<reviews.size(); i++) {
-			Comment selectedreview = reviews.get(i);
-            System.out.println("Review ["+reviews.get(i)+"]: "+reviews.get(i).getComment()+"[POSTED BY "+reviews.get(i).getUser()+"]");
-            //System.out.println(reviews.get(i).getReplies());
-            // ADD A SECTION TO PUT REPLIES UNDER REVIEWS 
-
-            for (int j = 0; j < selectedreview.getNumReplies() ;j++) {    
-            	String reply = selectedreview.getReplyComment(j);
-            	System.out.println("Reply to ["+reviews.get(i)+"]: "+reply+"[POSTED BY "+selectedreview.getReplyAuthor(j)+"]");
-            }
+			System.out.println(reviews.get(i).getUser().getName());
+			System.out.println(reviews.get(i).getComment() +"\n");
+			reviews.get(i).showReplies((depth - 1), 1);
 		}
-	}
-	
+}
+	public void showReviews(){
+		// Title for the Show Reviews section
+		System.out.println("");
+		System.out.println("The reviews for "+name+" ("+id+"):");
+		
+		for (int i=0; i<reviews.size(); i++) {
+			System.out.println(reviews.get(i).getUser().getName());
+			System.out.println(reviews.get(i).getComment() +"\n");
+			reviews.get(i).showReplies(255, 1);
+		}
+}
 	
 	// #### MUTATORS #### //
 	

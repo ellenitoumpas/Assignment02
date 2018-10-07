@@ -5,20 +5,20 @@ public class Comment {
 	
 	// #### DECLARING VARIBALES #### //
 	private String comment;
-	private User userID;
-	private ArrayList<Comment> replyList = new ArrayList<Comment>();		
+	private User user;
+	private ArrayList<Comment> replies = new ArrayList<Comment>();		
 	
 	
 	// #### THE CONSTRUCTOR #### //
 	public Comment(User a, String b) {
-		userID = a;
+		user = a;
 		comment = b;	
 	}
 
 	
 	// #### ACCESSORS #### //
-	public String getUser() {
-		 return userID.getID();
+	public User getUser() {
+		 return user;
 	}
 	 
 	public String getComment() {
@@ -26,25 +26,56 @@ public class Comment {
 	}
 	
 	public int getNumReplies() {
-		 return replyList.size();
+		 return replies.size();
 	}
 		
 	public String getReplyComment(int i) {
-		 return replyList.get(i).comment;
+		 return replies.get(i).comment;
 	}
 	
-	public String getReplyAuthor(int i) {
-		 return replyList.get(i).userID.getID();
+	public User getReplyAuthor(int i) {
+		 return replies.get(i).getUser();
 	}
 	 
 	 
 	// #### MUTATORS #### //
 	public void addReply(Comment reply) {
-		 replyList.add(reply);
+		 replies.add(reply);
 	}
 	
+	// #### OTHER FUNCTIONS#### //
 	
-// DELETE BEFORE SUBMITTING	
+	public void printReply(int i) {
+		System.out.println(this.getReplyAuthor(i));
+		System.out.println(this.getReplyComment(i));
+		}
+	
+	public void showAllReplies(int depth) {
+			System.out.println("");
+			System.out.println("The reviews for "+ user.getName() +" ("+ user.getID() +"):");
+			
+			for (int i = 0; i < replies.size(); i++) {
+				System.out.println(replies.get(i).getUser().getName());
+				System.out.println(replies.get(i).getComment() + "\n");
+				replies.get(i).showReplies((depth - 1), 1);
+			}
+	}
+	
+	public void showReplies(int depth, int indent) {
+		if (depth > 0)
+		for (int i = 0; i < replies.size(); i++) {
+			for (int j = 0; j < indent; j++) {
+				System.out.print("\t");
+			}
+			System.out.print(getReplyAuthor(i).getName() + "\n");
+			for (int k = 0; k < indent; k++) {
+				System.out.print("\t");
+			}
+			System.out.print(replies.get(i).getComment()+ "\n\n");
+			replies.get(i).showReplies((depth - 1), (indent + 1));
+		}
+	}
+// DELETE BEFORE SUBMITTING	`
 //	 public String getContent() {
 //	 return contentID;
 // }
