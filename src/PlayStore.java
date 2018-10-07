@@ -4,8 +4,6 @@ import java.util.Enumeration;
 
 public class PlayStore {
 	
-	
-	
 	// #### DECLARING VARIBALES #### //
 	
 	private String id;
@@ -25,9 +23,9 @@ public class PlayStore {
 	// Get a feature of the store item by index 
 	// Allows an iterative approach to get ALL features 
 	// From any generic object  (not specific to class)
-	public void getFeatureByIndex(int i) {
-		//
-	}
+//	public void getFeatureByIndex(int i) {
+//		//
+//	}
 	
 	
 	public void showReadingOfGenre(String genre) {				 		
@@ -201,11 +199,13 @@ public class PlayStore {
 		this.id = id;
 		this.content = content;
 		contentlist.put(id, content);
+		System.out.println("FOR TESTING ONLY :: Added object "+id+" - "+content);
 	}
 	
 	// Add user to userlist arraylist
 	public void add(User user) {
 		userlist.add(user);
+		System.out.println("FOR TESTING ONLY :: A new user "+user.getID()+" has been added with name "+user.getName());
 	}
 	
 

@@ -22,7 +22,6 @@ public class PlayStoreMain {
             store.add(b2.getID(),b2);
             store.add(m1.getID(),m1);
             store.add(b3.getID(),b3);
-            
 
             // Adding new games
             OS androidV4 = new OS("Android", 4);                
@@ -35,8 +34,7 @@ public class PlayStoreMain {
                                                                             
             store.add(g1.getID(), g1);
             store.add(g2.getID(), g2);
-            store.add(g3.getID(), g3);
-                       
+            store.add(g3.getID(), g3);              
                                                                           
             // Adding new users
             User u1 = new User("u1", "John Doe", "0412000", 2000, androidV4);
@@ -59,24 +57,29 @@ public class PlayStoreMain {
             
             // TO DO: Need to fix exception handling in becomePremium method
             u4.becomePremium();
-//            u4.buyContent(m1);
-//           u2.becomePremium();
+            u4.buyContent(m1);
+            u2.becomePremium();
             
-//            // TO DO: Need to fix exception handling in buyContent (for game) method
-//            u2.buyContent(g2);
-//            u2.buyContent(g1);
-//
-//            // TO DO: Change the Show Content method so it automatically outputs ALL attributes depending on which object it is
+            // TO DO: Need to fix exception handling in buyContent (for game) method
+            u2.buyContent(g2);
+            u2.buyContent(g1);
+
+            
+            
+            // TO DO: Change the Show Content method so it automatically outputs ALL attributes depending on which object it is
 //            store.showContent();
-//                        
-//            // TO DO: Improve showContent Method
-//            // Call a method to show all games                
-//            store.showContent("game");
+                        
+            // TO DO: Improve showContent Method
+            // Call a method to show all games                
+//            store.showContent("Book");
 //            
 //            store.showReadingOfGenre("Novel");
 //           
 //            // TO DO: Improve formating for this following method + add code to write "User hasn't bought any items"
-//            u2.showContentBought();
+             u1.showContentBought(); // ADDED FOR TESTING ONLY
+             u2.showContentBought();
+              u3.showContentBought(); // ADDED FOR TESTING ONLY
+              u4.showContentBought(); // ADDED FOR TESTING ONLY
 //
 //            Comment comment1 = new Comment(u1, "This is a fantastic game!");
 //            g1.addReview(comment1);
@@ -92,6 +95,8 @@ public class PlayStoreMain {
 //
 //            // g1.addReview(comment1); // IS THIS A MISTAKE ADDING comment1 more than once?
 //            g1.addReview(comment2);
+            
+            
 //            
 //            g1.showReviews();
     }

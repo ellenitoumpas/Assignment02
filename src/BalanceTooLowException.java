@@ -6,7 +6,7 @@ public class BalanceTooLowException extends Exception{
 	
 	public BalanceTooLowException(double balance, double cost) {
 		// super(msg);
-		msg = "Sorry you do not have enough money ";
+		msg = " you do not have enough money ";
 		this.balance = balance;
 		this.cost = cost;
     }

@@ -4,7 +4,7 @@ public class Comment {
 
 	
 	// #### DECLARING VARIBALES #### //
-	private String contentID, comment;
+	private String comment;
 	private User userID;
 	private ArrayList<Comment> replyList = new ArrayList<Comment>();		
 	

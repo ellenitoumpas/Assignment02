@@ -45,6 +45,7 @@ abstract class Content {
             System.out.println("Review ["+reviews.get(i)+"]: "+reviews.get(i).getComment()+"[POSTED BY "+reviews.get(i).getUser()+"]");
             //System.out.println(reviews.get(i).getReplies());
             // ADD A SECTION TO PUT REPLIES UNDER REVIEWS 
+
             for (int j = 0; j < selectedreview.getNumReplies() ;j++) {    
             	String reply = selectedreview.getReplyComment(j);
             	System.out.println("Reply to ["+reviews.get(i)+"]: "+reply+"[POSTED BY "+selectedreview.getReplyAuthor(j)+"]");
@@ -64,6 +65,7 @@ abstract class Content {
 		//System.out.println("About to add "+comment.getComment());
 		reviews.add(comment);
 	}
+
 
 	
 	//	public void addComment(Comment comment) {
