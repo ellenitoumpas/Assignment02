@@ -6,7 +6,7 @@ public class User {
 	// #### DECLARING VARIBALES #### //
 	
 	// Formatter for creating correct currency format with two decimals 
-	DecimalFormat df =  DecimalFormat("0.00");
+	DecimalFormat df = new DecimalFormat("0.00");
 	
 	// USER variables
 	private String id, name, phone;
