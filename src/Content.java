@@ -61,7 +61,7 @@ abstract class Content {
 	// When an item is successfully ordered, the item's download count increases by 1.
 	public void addDownload() {
 		downloads ++;
-		}	
+	}	
 	
 	
 	// Adding a review should look like this

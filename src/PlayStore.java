@@ -8,11 +8,7 @@ public class PlayStore {
 //	private Content content;		
 	private Hashtable<String, Content> contentlist = new Hashtable<String, Content>(); 
 	private ArrayList<User> userlist= new ArrayList<User>();
-	
-	public PlayStore() {
 		
-	}
-	
 	
 	// Keep a record of all objects added to the shop 
 	public void add(String id, Content content) {
@@ -65,7 +61,7 @@ public class PlayStore {
 	
 
 	// ########### FIX ALL METHODS THAT ARE BELOW HERE ###############	
-	public void showContent(String s) {		
+	public void showContent(String s) {			
 		char chosenchar = s.toLowerCase().charAt(0);
 		System.out.println("");	
 		System.out.println("#####################");
