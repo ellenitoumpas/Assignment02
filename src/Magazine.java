@@ -9,6 +9,7 @@ public class Magazine extends Reading{
 		publisher = d;
 		genre = e;
 		pages = f;
-		mainFeature = g;				
+		mainFeature = g;
+		type = 'm';
 	}	
 }

@@ -61,16 +61,22 @@ public class PlayStore {
 	
 
 	// ########### FIX ALL METHODS THAT ARE BELOW HERE ###############	
-	public void showContent(String s) {			
-		char chosenchar = s.toLowerCase().charAt(0);
+	
+	
+	public void showContent(Content c) {			
+		char contentType = c.getType();
+		
+		//Print the banner
 		System.out.println("");	
 		System.out.println("#####################");
-		System.out.println("ALL ITEM OF TYPE "+s.toUpperCase());
+		System.out.println("ALL ITEM OF TYPE "+ Character.toUpperCase(contentType));
 		System.out.println("#####################");	
+		
+		//Go through the contentList and show content of all instances of the chosen game type.
 		Enumeration<String> keys = contentlist.keys();				
 		while(keys.hasMoreElements()){
 			String key = keys.nextElement();
-			switch (chosenchar) {
+			switch (contentType) {
 			case 'g': 
 				if (contentlist.get(key) instanceof Game){
 					contentlist.get(key).printAttributes();

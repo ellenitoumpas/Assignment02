@@ -63,7 +63,7 @@ public class PlayStoreMain {
             store.showContent(); // NOTES: Should we add any more details/ change formatting??          
                                     
             // Call a method to show all games               
-            store.showContent("Game"); //  NOTES: Not sure if this is the right way to do it? Instead do we parse an object of type game we know exits?
+            store.showContent(g1); //  NOTES: Not sure if this is the right way to do it? Instead do we parse an object of type game we know exits?
             
             store.showReadingOfGenre("Novel");
             u2.showContentBought();
@@ -82,7 +82,6 @@ public class PlayStoreMain {
 
             g1.addReview(comment2);
             
-            g1.showReviews(9);            
-//          g1.showReviews();
+            g1.showReviews(9);  //change this argument to control the depth of the discussion thread          
     }
 }

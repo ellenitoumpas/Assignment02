@@ -43,22 +43,8 @@ public class Comment {
 		System.out.println(this.getReplyAuthor(i));
 		System.out.println(this.getReplyComment(i));
 		}
-	
-	
-//  TESTING ONLY :: DELETE WHEN COMMENT SECTION FINISHED	
-//	public void showAllReplies(int depth) {
-//			System.out.println("");
-//			System.out.println("The reviews for "+ user.getName() +" ("+ user.getID() +"):");
-//			
-//			for (int i = 0; i < replies.size(); i++) {
-//				System.out.println(replies.get(i).getUser().getName());
-//				System.out.println(replies.get(i).getComment() + "\n");
-//				replies.get(i).showReplies((depth - 1), 1);
-//			}
-//	}
-//	
-	
-	
+		
+	//showReplies will recursively call itself and print all replies in a depth-first approach until the specified depth is ready.
 	public void showReplies(int depth, int indent) {
 		if (depth > 0)
 		for (int i = 0; i < replies.size(); i++) {

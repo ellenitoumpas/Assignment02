@@ -9,7 +9,8 @@ public class Game extends Content{
 		name = b;
 		price = c;		
 		isMultiPlayer = d;
-		os = e;				
+		os = e;
+		type = 'g';
 	}
 	
 	

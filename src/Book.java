@@ -9,7 +9,8 @@ public class Book extends Reading{
 		publisher = d;
 		genre = e;
 		pages = f;
-		author = g;				
+		author = g;	
+		type = 'b';
 	}
 		
 }
