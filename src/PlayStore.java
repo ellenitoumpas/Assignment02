@@ -4,221 +4,95 @@ import java.util.Enumeration;
 
 public class PlayStore {
 	
-	// #### DECLARING VARIBALES #### //
-	
 	private String id;
 	private Content content;		
 	private Hashtable<String, Content> contentlist = new Hashtable<String, Content>(); 
 	private ArrayList<User> userlist= new ArrayList<User>();
 	
-	
-	
-	// #### THE CONSTRUCTOR #### //
-	
-	public PlayStore() {}
-	
-	
-	// #### ACCESSORS #### //
-	
-	// Get a feature of the store item by index 
-	// Allows an iterative approach to get ALL features 
-	// From any generic object  (not specific to class)
-//	public void getFeatureByIndex(int i) {
-//		//
-//	}
-	
-	
-	public void showReadingOfGenre(String genre) {				 		
-		// Go through contentlist and return items that are of genre type
-		// Is there an issue with hard coding "class Book/ Magazine" in if then statement ??
-		// Ideally I want to get super.classname but this causes issues (returns java.object)
-		String cgenre = genre;		
-		System.out.println(""); 
-		System.out.println("########################");
-		System.out.println("ALL BOOKS IN GENRE: "+cgenre.toUpperCase());
-		System.out.println("########################");
-		System.out.println(""); 
-        Enumeration<String> keys = contentlist.keys();        
-
-        while(keys.hasMoreElements()){
-        	
-            String key = keys.nextElement();                   
-            String classtypestring = String.valueOf(contentlist.get(key).getClass());
-          
-            if (classtypestring.equals("class Book") | classtypestring.equals("class Magazine")){            	
-            	String genretype = ((Reading) contentlist.get(key)).getGenre();            	
-            	if (genretype.equals(cgenre)) {
-            		System.out.println("ID: "+contentlist.get(key).getID());
-            		System.out.println("ID: "+ (((Reading) contentlist.get(key)).getGenre()));
-            	}				
-			}            
-        }		
+	public PlayStore() {
+		
 	}
 	
-	// **** AN EXPERIMENT ** //
-	// Show all content available in the store using a generic approach
 	
-//	public void showContent() {		
-//		System.out.println("ALL AVAILABLE ITEMS");
-//		System.out.println("###################");
-//		System.out.println("");  
-//        Enumeration<String> keys = contentlist.keys();
-//        while(keys.hasMoreElements()){
-//            String key = keys.nextElement();   
-//            Object o = contentlist.get(key);
-//            System.out.println("Object retrieved: "+ o);
-//            
-//            System.out.println("ID: "+contentlist.get(key).getID()); 
-//            System.out.println("TYPE: "+contentlist.get(key).getClass()); 
-//            System.out.println("NAME: "+contentlist.get(key).getName()); 
-//            System.out.println("DOWNLOADS: "+contentlist.get(key).getDownload()); 
-//            System.out.println("");             
-//        }	
-//	}
-//	
+	// Keep a record of all objects added to the shop 
+	public void add(String id, Content content) {
+		this.id = id;
+		this.content = content;
+		contentlist.put(id, content);		
+	}
 	
 	
-//	 **** THIS VERSION WORKS ** //
-//	 Show all content available in the store
+	// Keep a record of all user accounts added to the shop
+	public void add(User user) {
+		userlist.add(user);
+	}
 	
+	
+	// Show all available content items in the store
 	public void showContent() {		
 		System.out.println("");
 		System.out.println("###################");
 		System.out.println("ALL AVAILABLE ITEMS");
 		System.out.println("###################");
-		System.out.println("");  
-		
         Enumeration<String> keys = contentlist.keys();
         while(keys.hasMoreElements()){
-            String key = keys.nextElement();               
-            System.out.println("ID: "+contentlist.get(key).getID()); 
-            System.out.println("TYPE: "+contentlist.get(key).getClass()); 
-            System.out.println("NAME: "+contentlist.get(key).getName()); 
-            System.out.println("DOWNLOADS: "+contentlist.get(key).getDownload()); 
-            System.out.println("");             
+            String key = keys.nextElement(); 
+            contentlist.get(key).printAttributes(); 
         }	
 	}
 	
-	// SOLUTION 1 FOR SHOWCONTENT(CLASS TYPE):: 
-	// 1. Parse a string that should match the object type (manually type in)
-	// 2. Convert to lowercase
-	// 3. Grab the first character of the Show content of type using first char of ID name
-	// book -> b, magazine -> m, game -> g
-//	public void showContent(String s) {		
-//		
-//		String objectName = s.toLowerCase();
-//		char chosenchar = objectName.charAt(0);
-//		System.out.println("");
-//		System.out.println("#########################");
-//		System.out.println("ALL ITEMS OF TYPE: "+s.toUpperCase());
-//		System.out.println("#########################");
-//		System.out.println("");
-//		
-//		Enumeration<String> keys = contentlist.keys();		
-//		
-//		while(keys.hasMoreElements()){
-//			
-//			String key = keys.nextElement();
-//			Class elementid = contentlist.get(key).getClass();
-//			String classname = String.valueOf(elementid).toLowerCase();			
-//			char classfirstchar = classname.charAt(6);				
-//					
-//			if (classfirstchar == chosenchar){
-//				System.out.println("ID: "+contentlist.get(key).getID());
-//			}
-//			
-//			// ADD exception :: if no items matching type 			  	
-//		}		
-//	}
 	
+	// Show all available books of a particular genre
+	public void showReadingOfGenre(String genre) {				 		
+		// Go through contentlist and return items that are of genre type		
+		String cgenre = genre;		
+		System.out.println(""); 
+		System.out.println("########################");
+		System.out.println("ALL BOOKS IN GENRE: "+cgenre.toUpperCase());
+		System.out.println("########################");
+        Enumeration<String> keys = contentlist.keys();        
+        while(keys.hasMoreElements()){        	
+            String key = keys.nextElement();                   
+            String classtypestring = String.valueOf(contentlist.get(key).getClass());          
+            if (classtypestring.equals("class Book") | classtypestring.equals("class Magazine")){            	
+            	String genretype = ((Reading) contentlist.get(key)).getGenre();            	
+            	if (genretype.equals(cgenre)) {
+            		contentlist.get(key).printAttributes();
+            	}				
+			}            
+        }		
+	}
 	
-	
-	// SOLUTION 2 :: ANOTHER VERSION ??
-//	public void showContent(String s) {
-//		String generic = "class ";
-//		String objectName = generic.concat(s);		
-//		System.out.println("ALL ITEM TYPES");
-//		System.out.println("###################");
-//		System.out.println(""); 		
-//		Enumeration<String> keys = contentlist.keys();
-//		while(keys.hasMoreElements()){
-//			String key = keys.nextElement();				
-//			System.out.println("ID: "+contentlist.get(key).getID()); 
-//			System.out.println("TYPE: "+contentlist.get(key).getClass()); 			
-//			System.out.println("TEST: Is "+ contentlist.get(key).getClass() + " of type "+objectName+" RESULT "+ (String)contentlist.get(key).getClass().equals(objectName));
-//			System.out.println("");   	
-//		}		
-//	}
-	
-	
+
+	// ########### FIX ALL METHODS THAT ARE BELOW HERE ###############	
 	public void showContent(String s) {		
 		char chosenchar = s.toLowerCase().charAt(0);
-//		System.out.println(contentlist.get(chosenchar +"1"));
-//		System.out.print(contentlist.get(chosenchar +"1").getName());
+		System.out.println("");	
+		System.out.println("#####################");
 		System.out.println("ALL ITEM OF TYPE "+s.toUpperCase());
-		System.out.println("###################");
-		System.out.println("");
-		
-		Enumeration<String> keys = contentlist.keys();		
-		
+		System.out.println("#####################");	
+		Enumeration<String> keys = contentlist.keys();				
 		while(keys.hasMoreElements()){
-			
 			String key = keys.nextElement();
 			switch (chosenchar) {
 			case 'g': 
-				if (contentlist.get(key) instanceof Game)
-			{
+				if (contentlist.get(key) instanceof Game){
 					contentlist.get(key).printAttributes();
-			}
+					}
 				break;
 			case 'b': 
-				if (contentlist.get(key) instanceof Book)
-			{
+				if (contentlist.get(key) instanceof Book){
 					contentlist.get(key).printAttributes();
-			}
+					}
 				break;
-			case 'm': if (contentlist.get(key) instanceof Magazine)
-			{
-				contentlist.get(key).printAttributes();
-			}
-			break;
-			default: System.out.println("No such class.");
-			}
-			
-			
-			
-			// ADD exception :: if no items matching type 			  	
+			case 'm': 
+				if (contentlist.get(key) instanceof Magazine){
+					contentlist.get(key).printAttributes();
+					}
+				break;
+			default: 			
+				System.out.println("No such class."); // TO DO: FIX THE WAY DEFAULT APPEARS....AT THE MOMENT IT WRITES 'NO SUCH CLASS' EACH ITERATION
+			}											  	
 		}		
-	}
-	
-	
-	// #### MUTATORS #### //
-	
-	// Add content to the contentlist hashtable
-	public void add(String id, Content content) {
-		this.id = id;
-		this.content = content;
-		contentlist.put(id, content);
-		System.out.println("FOR TESTING ONLY :: Added object "+id+" - "+content);
-	}
-	
-	// Add user to userlist arraylist
-	public void add(User user) {
-		userlist.add(user);
-		System.out.println("FOR TESTING ONLY :: A new user "+user.getID()+" has been added with name "+user.getName());
-	}
-	
-
-	
-	
-
-	
-
-	// #### TESTING ONLY #### //
-	
-	// ##### TESTING STATEMENT ##### //	
-	public void testingOutput(String a){
-		System.out.println(a);
-	}
-	
+	}		
 }

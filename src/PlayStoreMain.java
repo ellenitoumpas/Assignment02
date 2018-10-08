@@ -51,54 +51,41 @@ public class PlayStoreMain {
                                                                     
             // Simulate transactions
             u1.buyContent(b1);
-            u1.buyContent(b3);           
-            u1.buyContent(m1);                        
-            u4.buyContent(g1);   
-            
-            // TO DO: Need to fix exception handling in becomePremium method
+            u1.buyContent(b3);
+            u1.buyContent(m1);
+
+            u4.buyContent(g1);
             u4.becomePremium();
             u4.buyContent(m1);
+
             u2.becomePremium();
-            
-            // TO DO: Need to fix exception handling in buyContent (for game) method
             u2.buyContent(g2);
             u2.buyContent(g1);
-
             
+            store.showContent(); // NOTES: Should we add any more details/ change formatting??          
+                                    
+            // Call a method to show all games               
+            store.showContent("Game"); //  NOTES: Not sure if this is the right way to do it? Instead do we parse an object of type game we know exits?
             
-            // TO DO: Change the Show Content method so it automatically outputs ALL attributes depending on which object it is
-//            store.showContent();
-                        
-            // TO DO: Improve showContent Method
-            // Call a method to show all games                
-//            store.showContent("Book");
-//            
-//            store.showReadingOfGenre("Novel");
-//           
-//            // TO DO: Improve formating for this following method + add code to write "User hasn't bought any items"
-             u1.showContentBought(); // ADDED FOR TESTING ONLY
-             u2.showContentBought();
-              u3.showContentBought(); // ADDED FOR TESTING ONLY
-              u4.showContentBought(); // ADDED FOR TESTING ONLY
-
+            store.showReadingOfGenre("Novel");
+            u2.showContentBought();
+             
             Comment comment1 = new Comment(u1, "This is a fantastic game!");
             g1.addReview(comment1);
 
             Comment reply1 = new Comment(u2, "I never liked this game!");
             comment1.addReply(reply1);
             
-            // TO DO: Need to extend the print Review and replies method as this line isn't appearing 
+ 
             Comment reply2 = new Comment(u1, "Why not??");
             reply1.addReply(reply2);
             
             Comment comment2 = new Comment(u3, "The game crashes frequently");
 
-//             g1.addReview(comment1); // IS THIS A MISTAKE ADDING comment1 more than once?
+//          g1.addReview(comment1); // IS THIS A MISTAKE ADDING comment1 more than once?
             g1.addReview(comment2);
             
-            g1.showReviews(9);
-            
-//            
-//            g1.showReviews();
+            g1.showReviews(9);            
+//          g1.showReviews();
     }
 }

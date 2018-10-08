@@ -1,4 +1,3 @@
-
 public class NoItemsException extends Exception{
 
 	private String msg;
@@ -8,5 +7,4 @@ public class NoItemsException extends Exception{
 		
 	}
 
-	
 }

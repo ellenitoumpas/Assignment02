@@ -1,14 +1,9 @@
 
 public class Game extends Content{	
 	
-	// #### DECLARING VARIBALES #### //
-	
 	private boolean isMultiPlayer;
 	private OS os;
-		
-	
-	// #### THE CONSTRUCTOR #### //
-	
+
 	public Game (String a, String b, int c, boolean d, OS e) {		
 		id = a;
 		name = b;
@@ -18,33 +13,18 @@ public class Game extends Content{
 	}
 	
 	
-	// #### ACCESSORS #### //
+	public void printAttributes() {		
+		String downloadString = ((downloads == 1) ? "download" : "downloads");
+		System.out.println(name+" "+os.getPlatform()+" v"+os.getVersion()+" ["+downloads+" "+downloadString.toUpperCase()+"]");  		
+	}
+	
 	
 	public String getPlatform() {
 		return os.getPlatform();
 	}
 		
+	
 	public int getVersion() {
 		return os.getVersion();
-	}
-	
-
-	// #### MUTATORS #### //	
-	// #### TESTING ONLY #### //		
-	// #### DELETE BEFORE DELIVERING ASSIGNMENT ####//
-    // #### Testing the new GAME added ###############//
-//	public void testprint() {
-//		System.out.println("");
-//		System.out.println("GAME OBJECT");
-//		System.out.println("###########");
-//		System.out.println("ID: "+id);
-//		System.out.println("NAME: "+name);
-//		System.out.println("PRICE: "+price);
-//		System.out.println("IS MULTI? "+isMultiPlayer);
-//		System.out.println("OS? "+os.getPlatform()+" version "+os.getVersion());
-//		System.out.println("###########");
-//		System.out.println("");
-//	}
-	 // #### END DELETE ###############//
-			
+	}			
 }
