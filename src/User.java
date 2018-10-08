@@ -88,7 +88,7 @@ public class User {
 				throw new AlreadyPremiumException();
 			}						
 			// Check if the user has enough money to become a member
-			if (checkEnoughMoney(getBalance(), PREMIUMCOST)== false) {
+			if (!checkEnoughMoney(getBalance(), PREMIUMCOST)) {
 				throw new BalanceTooLowException(balance, PREMIUMCOST);
 			}		
 			// If user isn't premium and if user has enough money then upgrade to premium 			
@@ -148,7 +148,7 @@ public class User {
 		try {	
 			
 			// Check if the user has enough money to buy the item
-			if (checkEnoughMoney(getBalance(), itemprice) == false) {
+			if (!checkEnoughMoney(getBalance(), itemprice)) {
 				 throw new BalanceTooLowException(getBalance(), itemprice);
 			}	
 			

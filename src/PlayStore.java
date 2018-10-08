@@ -4,8 +4,8 @@ import java.util.Enumeration;
 
 public class PlayStore {
 	
-	private String id;
-	private Content content;		
+//	private String id;
+//	private Content content;		
 	private Hashtable<String, Content> contentlist = new Hashtable<String, Content>(); 
 	private ArrayList<User> userlist= new ArrayList<User>();
 	
@@ -16,13 +16,13 @@ public class PlayStore {
 	
 	// Keep a record of all objects added to the shop 
 	public void add(String id, Content content) {
-		this.id = id;
-		this.content = content;
+//		this.id = id;
+//		this.content = content;
 		contentlist.put(id, content);		
 	}
 	
 	
-	// Keep a record of all user accounts added to the shop
+	 //Keep a record of all user accounts added to the shop
 	public void add(User user) {
 		userlist.add(user);
 	}
@@ -45,10 +45,10 @@ public class PlayStore {
 	// Show all available books of a particular genre
 	public void showReadingOfGenre(String genre) {				 		
 		// Go through contentlist and return items that are of genre type		
-		String cgenre = genre;		
+//		String cgenre = genre;		
 		System.out.println(""); 
 		System.out.println("########################");
-		System.out.println("ALL BOOKS IN GENRE: "+cgenre.toUpperCase());
+		System.out.println("ALL BOOKS IN GENRE: "+ genre.toUpperCase());
 		System.out.println("########################");
         Enumeration<String> keys = contentlist.keys();        
         while(keys.hasMoreElements()){        	
@@ -56,7 +56,7 @@ public class PlayStore {
             String classtypestring = String.valueOf(contentlist.get(key).getClass());          
             if (classtypestring.equals("class Book") | classtypestring.equals("class Magazine")){            	
             	String genretype = ((Reading) contentlist.get(key)).getGenre();            	
-            	if (genretype.equals(cgenre)) {
+            	if (genretype.equals(genre)) {
             		contentlist.get(key).printAttributes();
             	}				
 			}            

@@ -12,7 +12,7 @@ public class PlayStoreMain {
     		Book b2 = new Book ("r2", "The great gatsby", 10, "Charles Scribner's Sons", "Novel", 180, authors2);
 
     		String[] authors3 = {"Thomas H. Cormen", "Charles E. Leiserson", "Ronald L. Rivest", "Clifford Stein"};
-    		Book b3 = new Book ("r3", "Introduction to algorithms", 100, "MIT Press", "Computer Science", 1312, authors3);                        		
+    		Book b3 = new Book ("r3", "Introduction to Algorithms", 100, "MIT Press", "Computer Science", 1312, authors3);                        		
     		
     		// FIXED ?? r3 -> r4
             Magazine m1 = new Magazine("r4", "Forbes", 8, "Forbes Media", "Business", 50, "World's richest under 30");                            
