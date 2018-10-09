@@ -16,7 +16,7 @@ public class Game extends Content{
 	
 	public void printAttributes() {		
 		String downloadString = ((downloads == 1) ? "download" : "downloads");
-		System.out.println(name+" "+os.getPlatform()+" v"+os.getVersion()+" ["+downloads+" "+downloadString.toUpperCase()+"]");  		
+		System.out.println(name + " " + os.getPlatform() + " v" + os.getVersion() + " [" + downloads + " " + downloadString.toUpperCase() + "]");  		
 	}
 	
 	

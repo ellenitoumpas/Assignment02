@@ -18,7 +18,7 @@ public class Comment {
 	}
 	
 	
-	// Retrieves the actual string within the comment object
+	// Retrieves the actual content within the comment object
 	public String getComment() {
 		 return comment;
 	}
@@ -42,16 +42,18 @@ public class Comment {
 	public void printReply(int i) {
 		System.out.println(this.getReplyAuthor(i));
 		System.out.println(this.getReplyComment(i));
-		}
+	}
 		
-	//showReplies will recursively call itself and print all replies in a depth-first approach until the specified depth is ready.
+	//showReplies will recursively call itself and print all replies in a depth-first approach until the specified depth is reached.
 	public void showReplies(int depth, int indent) {
 		if (depth > 0)
 		for (int i = 0; i < replies.size(); i++) {
+			//the j-loop indents each new level of depth the correct amount to indicate who is replying to whom.
 			for (int j = 0; j < indent; j++) {
 				System.out.print("\t");
 			}
-			System.out.println(getReplyAuthor(i).getName()+" ("+replies.get(i).getUser().getID()+"): "+replies.get(i).getComment());
+			System.out.println(getReplyAuthor(i).getName() + " (" + replies.get(i).getUser().getID() + "): " + replies.get(i).getComment());
+			//recursively calls the same method on the recently printed comment. 
 			replies.get(i).showReplies((depth - 1), (indent + 1));
 		}
 	}

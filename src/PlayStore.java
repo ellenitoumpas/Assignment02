@@ -3,17 +3,13 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 
 public class PlayStore {
-	
-//	private String id;
-//	private Content content;		
+			
 	private Hashtable<String, Content> contentlist = new Hashtable<String, Content>(); 
 	private ArrayList<User> userlist= new ArrayList<User>();
 		
 	
 	// Keep a record of all objects added to the shop 
 	public void add(String id, Content content) {
-//		this.id = id;
-//		this.content = content;
 		contentlist.put(id, content);		
 	}
 	
@@ -30,9 +26,11 @@ public class PlayStore {
 		System.out.println("###################");
 		System.out.println("ALL AVAILABLE ITEMS");
 		System.out.println("###################");
+		
         Enumeration<String> keys = contentlist.keys();
         while(keys.hasMoreElements()){
-            String key = keys.nextElement(); 
+            String key = keys.nextElement();
+            
             contentlist.get(key).printAttributes(); 
         }	
 	}
@@ -40,16 +38,16 @@ public class PlayStore {
 	
 	// Show all available books of a particular genre
 	public void showReadingOfGenre(String genre) {				 		
-		// Go through contentlist and return items that are of genre type		
-//		String cgenre = genre;		
 		System.out.println(""); 
 		System.out.println("########################");
 		System.out.println("ALL BOOKS IN GENRE: "+ genre.toUpperCase());
 		System.out.println("########################");
+		
         Enumeration<String> keys = contentlist.keys();        
-        while(keys.hasMoreElements()){        	
-            String key = keys.nextElement();                   
-            String classtypestring = String.valueOf(contentlist.get(key).getClass());          
+        while(keys.hasMoreElements()){  	
+            String key = keys.nextElement(); 
+            String classtypestring = String.valueOf(contentlist.get(key).getClass());   
+            
             if (classtypestring.equals("class Book") | classtypestring.equals("class Magazine")){            	
             	String genretype = ((Reading) contentlist.get(key)).getGenre();            	
             	if (genretype.equals(genre)) {
@@ -59,10 +57,7 @@ public class PlayStore {
         }		
 	}
 	
-
-	// ########### FIX ALL METHODS THAT ARE BELOW HERE ###############	
-	
-	
+	//show the content list filtered by content type.
 	public void showContent(Content c) {			
 		char contentType = c.getType();
 		
@@ -76,6 +71,7 @@ public class PlayStore {
 		Enumeration<String> keys = contentlist.keys();				
 		while(keys.hasMoreElements()){
 			String key = keys.nextElement();
+			
 			switch (contentType) {
 			case 'g': 
 				if (contentlist.get(key) instanceof Game){
