@@ -8,12 +8,14 @@ public class OS {
 		version = b;
 	}
 	
-		
+	
+	// Returns the platform of the operating system 
 	public String getPlatform() {
 		return platform;
 	}
 	
 	
+	// Returns the version number of the operating system
 	public int getVersion() {
 		return version;
 	}

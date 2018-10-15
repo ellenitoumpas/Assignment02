@@ -15,7 +15,7 @@ public class PlayStoreMain {
     		Book b3 = new Book ("r3", "Introduction to Algorithms", 100, "MIT Press", "Computer Science", 1312, authors3);                        		
     		
             Magazine m1 = new Magazine("r4", "Forbes", 8, "Forbes Media", "Business", 50, "World's richest under 30");                                     
-               
+                
             store.add(b1.getID(),b1);        		
             store.add(b2.getID(),b2);
             store.add(m1.getID(),m1);
@@ -39,7 +39,6 @@ public class PlayStoreMain {
             User u2 = new User("u2", "Jane Doe", "0412001", 120, androidV4);
             User u3 = new User("u3", "Dave Roe", "0412002", 100, iOSV10);
             User u4 = new User("u4", "Diane Roe", "0412003", 50, androidV3);    
-            
                        
             // Add users to ArrayList userlist 
             store.add(u1);
@@ -60,10 +59,10 @@ public class PlayStoreMain {
             u2.buyContent(g2);
             u2.buyContent(g1);
             
-            store.showContent(); // NOTES: Should we add any more details/ change formatting??          
+            store.showContent();           
                                     
-            // Call a method to show all games               
-            store.showContent(g1); //  NOTES: Not sure if this is the right way to do it? Instead do we parse an object of type game we know exits?
+            // Call a method to show all games        
+            store.showContent("Games");
             
             store.showReadingOfGenre("Novel");
             u2.showContentBought();
